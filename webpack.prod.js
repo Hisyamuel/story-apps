@@ -5,6 +5,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
+  devtool: 'source-map',
+  output: {
+    publicPath: '/story-app/',
+  },
   module: {
     rules: [
       {
@@ -27,10 +31,6 @@ module.exports = merge(common, {
         ],
       },
     ],
-  },
-
-  output: {
-    publicPath: '/story-app/',
   },
 
   plugins: [
