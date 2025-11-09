@@ -30,7 +30,7 @@ module.exports = merge(common, {
   },
 
   output: {
-    publicPath: '/story-apps/',
+    publicPath: './',
   },
 
   plugins: [
