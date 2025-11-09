@@ -1,4 +1,4 @@
-import App from './pages/app';
+import App from '../scripts/pages/app';
 import NotificationHelper from './utils/notification-helper'; 
 
 const app = new App({
