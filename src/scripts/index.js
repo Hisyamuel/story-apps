@@ -1,5 +1,4 @@
 import App from '../scripts/pages/app';
-import NotificationHelper from './utils/notification-helper'; 
 
 const app = new App({
   header: document.querySelector('.app-bar'),
@@ -18,11 +17,6 @@ window.addEventListener('load', async () => {
     try {
       await navigator.serviceWorker.register('/sw.js');
       console.log('Service Worker berhasil didaftarkan.');
-
-      setTimeout(() => {
-        NotificationHelper.requestPermission();
-      }, 3000); 
-
     } catch (error) {
       console.error('Gagal mendaftarkan Service Worker:', error);
     }

@@ -1,2 +1,2 @@
-APP_URL=<url_aplikasi>
-MAP_SERVICE_API_KEY=<api_key>
+APP_URL= https://story-apps-hisyamuel.netlify.app/
+MAP_SERVICE_API_KEY= https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png

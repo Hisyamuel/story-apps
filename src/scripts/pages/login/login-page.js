@@ -1,6 +1,7 @@
 import ApiService from '../../data/api';
 import AuthService from '../../utils/auth-service';
 import Utils from '../../utils/index';
+import NotificationHelper from '../../utils/notification-helper';
 
 // Bagian ini adalah halaman login untuk aplikasi.
 const LoginPage = {
@@ -60,6 +61,10 @@ const LoginPage = {
         }
 
         AuthService.saveToken(response.loginResult.token);
+
+        await NotificationHelper.requestPermission();
+        await NotificationHelper._subscribeToPush();
+
         document.querySelector('app-bar').render();
         window.location.hash = '#/home';
 

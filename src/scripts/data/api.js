@@ -54,7 +54,25 @@ const ApiService = {
       headers: {
         'Authorization': `Bearer ${token}`,
       },
-      body: formData, 
+      body: formData,
+    });
+    return response.json();
+  },
+
+  // Fungsi untuk push notification
+  async subscribePush(subscription) {
+    const token = AuthService.getToken();
+    if (!token) {
+      return Promise.reject(new Error('User not authenticated'));
+    }
+
+    const response = await fetch(`${Config.BASE_URL}/notifications/subscribe`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(subscription),
     });
     return response.json();
   },

@@ -1,6 +1,7 @@
 import ApiService from '../../data/api';
 import AuthService from '../../utils/auth-service';
 import Utils from '../../utils/index';
+import NotificationHelper from '../../utils/notification-helper';
 
 // Bagian ini adalah halaman untuk menambahkan cerita baru
 const AddStoryPage = {
@@ -90,7 +91,7 @@ const AddStoryPage = {
 
         // Tombol submit form
         const addStoryForm = document.querySelector('#add-story-form');
-        const submitButton = document.querySelector('#submit-button'); 
+        const submitButton = document.querySelector('#submit-button');
         const errorMessageElement = document.querySelector('#error-message');
 
         addStoryForm.addEventListener('submit', async (event) => {
@@ -105,7 +106,7 @@ const AddStoryPage = {
 
             // Menyiapkan data form
             const formData = new FormData();
-    
+
             formData.append('photo', document.querySelector('#photo').files[0]);
             formData.append('description', document.querySelector('#description').value);
             formData.append('lat', document.querySelector('#latitude').value);
@@ -119,7 +120,11 @@ const AddStoryPage = {
                     throw new Error(response.message);
                 }
 
-                alert('Cerita berhasil diupload!');
+                NotificationHelper.showSuccessNotification(
+                    'Upload Berhasil',
+                    'Cerita baru Anda telah ditambahkan.'
+                );
+
                 window.location.hash = '#/home';
 
             } catch (error) {
