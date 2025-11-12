@@ -431,12 +431,7 @@ footer {
     padding: 1rem 1rem;
     flex-direction: column;
     gap: 10px;
-  }
-
-  .app-bar__nav {
-    padding: 1rem 1rem;
-    flex-direction: column;
-    gap: 10px;
+    width: 50%;
   }
 
   .app-bar__nav ul {
